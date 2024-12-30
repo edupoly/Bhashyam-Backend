@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var router = require('./routes/branch.routes');
+
 app.use('/branches',router);
 
 var routers = require('./routes/zonal.routes');
