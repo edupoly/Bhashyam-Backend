@@ -133,7 +133,10 @@ route.get('/allcomplaints',(req,res)=>{
       if (err) {
         return res.status(401).json({ msg: "Invalid token" });
       }
-      customercare = decoded;
+      console.log("decoded",decoded);
+      if(decoded._doc?.role === 'Customercare')
+        customercare = decoded
+      
     });
   
     if (!customercare) {

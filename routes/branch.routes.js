@@ -69,7 +69,7 @@ router.post("/login", (req, res) => {
       console.log('ccare',customercare);
       var token = jwt.sign({ ...customercare } ,"secretkey");
       console.log(token);
-      res.json({msg:"success" , token, role : 'customercare',name : customercare.name})
+      res.json({msg:"success" , token, role :customercare.role,name : customercare.name})
     })
     .catch((err)=>{
       console.log(err);
@@ -124,7 +124,7 @@ router.post("/addbranch", (req, res) => {
       console.log(branch);
       res.json({ msg: "Branch Added" });
     })
-    .catch((err) => {
+    .catch((err) => { 
       console.log(err);
       res.status(500).json({ msg: "branch add failed", error: err.message });
     });
