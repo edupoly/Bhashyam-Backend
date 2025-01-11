@@ -11,9 +11,9 @@ var route = express.Router();
 // var Zonal = require('../models/zonal.model')
 var Complaint = require("../models/complaints.model");
 const router = require("./branch.routes");
-var mcurl =
+var mcurl = mongodb+srv://infoedupoly:edupoly83@cluster0.eitlw5l.mongodb.net/Schoolproject?retryWrites=true&w=majority&appName=Cluster0;
   // "mongodb+srv://jvdimvp:Pradeep903@cluster0.d2cwd.mongodb.net/Bhashyam?retryWrites=true&w=majority&appName=Cluster0";
-  "mongodb+srv://lakshman:ramu123@cluster0.mmeuw.mongodb.net/Schoolproject?retryWrites=true&w=majority&appName=Cluster0"
+  //"mongodb+srv://lakshman:ramu123@cluster0.mmeuw.mongodb.net/Schoolproject?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose
   .connect(mcurl)
