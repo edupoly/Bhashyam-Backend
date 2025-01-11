@@ -11,7 +11,7 @@ var route = express.Router();
 // var Zonal = require('../models/zonal.model')
 var Complaint = require("../models/complaints.model");
 const router = require("./branch.routes");
-var mcurl = mongodb+srv://infoedupoly:edupoly83@cluster0.eitlw5l.mongodb.net/Schoolproject?retryWrites=true&w=majority&appName=Cluster0
+var mcurl = "mongodb+srv://infoedupoly:edupoly83@cluster0.eitlw5l.mongodb.net/Schoolproject?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose
   .connect(mcurl)
