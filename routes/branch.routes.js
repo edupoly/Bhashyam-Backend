@@ -36,7 +36,19 @@ router.get("/", (req, res) => {
       console.log(err);
     });
 });
-
+router.post('/addcustomercare',(req,res)=>{
+  var newCustomercare = new CustomerCare(  { ... req.body,role :'customercare'});
+  newCustomercare
+  .save()
+  .then((customercare)=>{
+    console.log(customercare);
+    res.json({msg:"Customer care added"})
+  })
+  .catch((err)=>{
+    console.log(err);
+    res.status(500).json({msg:"customer care add failed", error: err.message});
+  })
+ })
 router.post("/login", (req, res) => {
   console.log(req.body);
   if (req.body.empid.charAt(0) === "p") {
