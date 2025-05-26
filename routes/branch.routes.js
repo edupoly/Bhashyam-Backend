@@ -36,6 +36,20 @@ router.get("/", (req, res) => {
       console.log(err);
     });
 });
+router.get("/customercare", (req, res) => {
+  CustomerCare.find({ role: 'Customercare' })
+    .then((data) => {
+      console.log(data);
+      if (data.length === 0) {
+        return res.status(404).json({ msg: "No customer care found" });
+      }
+        res.status(200).json({data, msg: "Customer care fetched successfully"});
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ msg: "Failed to fetch customer care", error: err.message });
+    });
+});
 router.post('/addcustomercare',(req,res)=>{
   var newCustomercare = new CustomerCare(  { ... req.body,role :'customercare'});
   newCustomercare
