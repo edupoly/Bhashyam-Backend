@@ -37,7 +37,20 @@ mongoose
 //       res.json({ msg: "zonal login failed" });
 //     });
 // });
-
+routers.get('/zonalofficerdetails', (req, res) => {
+       Zonal.find()
+    .then((zonalofficer) => {
+      if (!zonalofficer || zonalofficer.length === 0) {
+        return res.status(404).json({ msg: "No zonal officers found" });
+      }
+      console.log(zonalofficer);
+      res.json({ msg: "Zonal officer details fetched successfully", zonalofficer });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ msg: "zonal officer details fetch failed", error: err.message });
+    });
+})
 routers.get("/complaintsbybranch", (req, res) => {
   Complaint.find()
     .then((data) => {
